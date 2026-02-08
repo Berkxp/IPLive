@@ -36,7 +36,6 @@ def iplookup(ip, timeout):
             if r.status_code == 200:
                 data = r.json()
                 print(Fore.RESET + f"""\nIP: {ip}
-Hostname: {data['hostname']}
 City: {data['city']}
 Region: {data['region']}
 Country: {data['country']}
