@@ -57,7 +57,7 @@ def menu():
     print(Fore.LIGHTRED_EX + f"{banner}" + Fore.RESET)
     ip = input(Fore.LIGHTRED_EX + "[" + Fore.WHITE + "+" + Fore.LIGHTRED_EX + "]" + Fore.RESET + " Insert IP: ")
     print("")
-    t = int(input(Fore.LIGHTRED_EX + "[" + Fore.WHITE + "+" + Fore.LIGHTRED_EX + "]" + Fore.RESET + " Insert Timeout (Ex.: 1.5): "))
+    t = float(input(Fore.LIGHTRED_EX + "[" + Fore.WHITE + "+" + Fore.LIGHTRED_EX + "]" + Fore.RESET + " Insert Timeout (Ex.: 1.5): "))
     print("")
     print(Fore.WHITE + "[!] Press 'q' to stop the tool!\n")
     time.sleep(2.5)
