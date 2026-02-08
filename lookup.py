@@ -3,7 +3,6 @@ import time
 import requests
 import os
 from platform import system
-import keyboard
 
 banner = """ ██▓ ██▓███      ██▓     ██▓ ██▒   █▓▓█████ 
 ▓██▒▓██░  ██▒   ▓██▒    ▓██▒▓██░   █▒▓█   ▀ 
@@ -30,6 +29,7 @@ def vsac(sys):
 
 def iplookup(ip, timeout):
     while True:
+        vsac(sys)
         print(Fore.LIGHTRED_EX + banner)
         try:
             r = requests.get(f"https://ipinfo.io/{ip}/json")
@@ -40,14 +40,13 @@ City: {data['city']}
 Region: {data['region']}
 Country: {data['country']}
 Loc: {data['loc']}
-Org.: {data['postal']}
+Org.: {data['org']}
 Timezone: {data['timezone']}""")
             else:
                 print(Fore.RED + f"\n[!] Error while lookuping IP.\n" + Fore.RESET)
         except requests.RequestException as e:
             print(Fore.RED + f"[!] Error: {e}")
-
-        if keyboard.is_pressed('q'):
+        if input("") == "q":
             print("[!] Exiting...")
             break
         time.sleep(timeout)
@@ -61,7 +60,7 @@ def menu():
     t = int(input(Fore.LIGHTRED_EX + "[" + Fore.WHITE + "+" + Fore.LIGHTRED_EX + "]" + Fore.RESET + " Insert Timeout (Ex.: 1.5): "))
     print("")
     print(Fore.WHITE + "[!] Press 'q' to stop the tool!\n")
-    time.sleep(4)
+    time.sleep(2.5)
     iplookup(ip, t)
 
 menu()
